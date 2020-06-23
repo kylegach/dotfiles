@@ -1,0 +1,43 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
+brew "ack"
+brew "coreutils"
+brew "defaultbrowser"
+brew "git"
+brew "git-lfs"
+brew "grep"
+brew "imagemagick" args: ["with-webp"]
+brew "lynx"
+brew "mas"
+brew "p7zip"
+brew "tree"
+brew "yarn", args: ["without-node"]
+
+cask "1password"
+cask "docker"
+cask "figma"
+cask "firefox"
+cask "firefox-developer-edition"
+cask "github"
+cask "google-chrome"
+cask "google-chrome-canary"
+cask "hiddenbar"
+cask "iterm2"
+cask "keepingyouawake"
+cask "microsoft-edge-dev"
+cask "nightowl"
+cask "spotify"
+cask "virtualbox"
+cask "visual-studio-code"
+
+cask "font-jetbrains-mono"
+cask "font-source-code-pro"
+cask "font-source-code-pro-for-powerline"
+
+mas "Dato", id: 1470584107
+mas "Moom", id: 419330170
+mas "Slack", id: 803453959
