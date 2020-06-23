@@ -16,6 +16,9 @@ brew "mas"
 brew "p7zip"
 brew "tree"
 brew "yarn", args: ["without-node"]
+brew "zsh-autosuggestions"
+brew "zsh-completions"
+brew "zsh-syntax-highlighting"
 
 cask "1password"
 cask "docker"
