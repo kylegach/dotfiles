@@ -10,3 +10,12 @@ fi
 
 echo "› sudo softwareupdate -i -a"
 sudo softwareupdate -i -a
+
+echo "  Checking for mackup..."
+if test $(which mackup)
+  then
+    echo "  Restoring third-party app preferences..."
+    mackup restore
+  else
+    echo "  mackup not found; no third-party preferences restored"
+fi

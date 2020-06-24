@@ -1,0 +1,48 @@
+{
+  "debug.javascript.codelens.npmScripts": "never",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true 
+  },
+  "editor.fontFamily": "'JetBrains Mono', 'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": false,
+  "editor.fontSize": 13,
+  "editor.lineHeight": 18,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.minimap.enabled": false,
+  "editor.rulers": [
+    80
+  ],
+  "editor.semanticHighlighting.enabled": false,
+  "editor.tabSize": 2,
+  "explorer.autoReveal": false,
+  "workbench.colorTheme": "Overnight Slumber Italics",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.startupEditor": "newUntitledFile",
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "never",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+  ],
+  "git.enableSmartCommit": true,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.enabled": false,
+  "gitlens.views.repositories.location": "gitlens",
+  "gitlens.views.fileHistory.location": "gitlens",
+  "gitlens.views.lineHistory.location": "gitlens",
+  "gitlens.views.compare.location": "gitlens",
+  "gitlens.views.search.location": "gitlens",
+  "npm.packageManager": "yarn",
+  "pigments.enabledExtensions": "css, scss, json, js, jsx, ts, tsx",
+  "todo-tree.filtering.excludeGlobs": [
+    "**/analysts/**/*.*",
+    "**/deploy/**/*.*",
+    "**/framework/**/*.*"
+  ],
+  "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+  "todo-tree.general.statusBar": "top three",
+  "todo-tree.tree.showScanModeButton": false,
+}
