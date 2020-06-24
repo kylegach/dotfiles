@@ -19,7 +19,6 @@ setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
 setopt CORRECT
-setopt ENABLE_CORRECTION
 setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
