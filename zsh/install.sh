@@ -1,7 +1,7 @@
 #!/bin/sh
 
 echo "  Checking for spaceship-prompt..."
-DIR="~/.spaceship-prompt"
+DIR=~/.spaceship-prompt
 if [[ -d $DIR ]]
   then
     echo "  Found spaceship-prompt; upgrading..."
