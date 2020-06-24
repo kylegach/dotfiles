@@ -15,6 +15,9 @@
   "editor.semanticHighlighting.enabled": false,
   "editor.tabSize": 2,
   "explorer.autoReveal": false,
+  "files.associations": {
+    "*.symlink": "shellscript"
+  },
   "workbench.colorTheme": "Overnight Slumber Italics",
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.startupEditor": "newUntitledFile",
