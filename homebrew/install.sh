@@ -1,24 +1,24 @@
 #!/bin/sh
-#
-# Homebrew
-#
-# This installs some of the common dependencies needed (or at least desired)
-# using Homebrew.
 
-# Check for Homebrew
-if test ! $(which brew)
+echo "  Checking for Homebrew..."
+if test $(which brew)
 then
-  echo "  Installing Homebrew for you."
+  echo "  Found Homebrew, upgrading..."
 
-  # Install the correct homebrew for each OS type
-  if test "$(uname)" = "Darwin"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
-  then
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install)"
-  fi
+  brew update
+else
+  echo "  Installing Homebrew..."
 
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
+
+echo "  Upgrading formulae and casks..."
+brew upgrade
+
+echo "  Installing formulae, casks, and Mac App Store apps..."
+brew bundle install --file $ZSH/homebrew/Brewfile
+
+# Remove outdated versions from the cellar.
+brew cleanup
 
 exit 0

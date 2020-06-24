@@ -1,1 +1,5 @@
+# Local files & directories
 git/gitconfig.local.symlink
+
+# Generated files & directories
+Brewfile.lock.json
