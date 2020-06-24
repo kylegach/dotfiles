@@ -20,6 +20,7 @@ nvm use node
 echo "  Installing/upgrading global npm packages..."
 GLOBAL_NPM_PACKAGES=(
   npm
+  yarn
 )
 npm install -g ${GLOBAL_NPM_PACKAGES[@]}
 

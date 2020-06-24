@@ -12,12 +12,11 @@ brew "git"
 brew "git-lfs"
 brew "github/gh/gh"
 brew "grep"
-brew "imagemagick", args: ["with-webp"]
+brew "imagemagick"
 brew "lynx"
 brew "mas"
 brew "p7zip"
 brew "tree"
-brew "yarn", args: ["without-node"]
 brew "zsh-autosuggestions"
 brew "zsh-completions"
 brew "zsh-syntax-highlighting"
