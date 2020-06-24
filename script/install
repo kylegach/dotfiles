@@ -6,13 +6,22 @@ set -e
 
 cd "$(dirname $0)"/..
 
-# Run homebrew first
-homebrew/install.sh
+install_scripts="**/install.sh"
+regex_scripts_to_run_first="(homebrew|zsh)\/install.sh"
+
+# Run homebrew and zsh first
+for script in $install_scripts
+	do
+		if [[ $script =~ $regex_scripts_to_run_first ]]
+			then
+				sh -c "${script}"
+		fi
+done
 
 # Then everything else
-for script in **/install.sh
+for script in $install_scripts
 	do
-		if ! [[ $script == homebrew* ]]
+		if ! [[ $script =~ $regex_scripts_to_run_first ]]
 			then
 				sh -c "${script}"
 		fi
