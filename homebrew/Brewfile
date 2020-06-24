@@ -41,7 +41,6 @@ cask "visual-studio-code"
 
 cask "font-jetbrains-mono"
 cask "font-source-code-pro"
-cask "font-source-code-pro-for-powerline"
 
 mas "Dato", id: 1470584107
 mas "Moom", id: 419330170
