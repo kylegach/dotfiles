@@ -10,8 +10,8 @@ else
   git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm 
 fi
 
-# We need to source ~/.zshrc when we're done, to make `nvm` available
-reload!
+# We need to reload the shell when we're done, to make `nvm` available
+source ~/.zshrc
 
 echo "  Installing node..."
 nvm install node
@@ -21,6 +21,6 @@ echo "  Installing/upgrading global npm packages..."
 GLOBAL_NPM_PACKAGES=(
   npm
 )
-npm install -g ${GLOBAL_NPM_PACKAGES[@]}`
+npm install -g ${GLOBAL_NPM_PACKAGES[@]}
 
 exit 0
