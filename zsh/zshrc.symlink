@@ -13,19 +13,24 @@ then
 fi
 
 # all of our zsh files
-typeset -U config_files
 config_files=($ZSH/**/*.zsh)
 
 # load the path files
-for file in ${(M)config_files:#*/path.zsh}
+for file in $config_files
 do
-  source $file
+	if [[ $file == *path.zsh ]]
+		then
+  			source $file
+	fi
 done
 
 # load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+for file in $config_files
 do
-  source $file
+  	if ! [[ $file =~ .(path|completion)\.zsh ]]
+		then
+  			source $file
+	fi
 done
 
 # Activate zsh plugins
@@ -41,9 +46,12 @@ fi
 
 
 # load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
+for file in $config_files
 do
-  source $file
+	if [[ $file == *completion.zsh ]]
+		then
+  			source $file
+	fi
 done
 
 unset config_files
