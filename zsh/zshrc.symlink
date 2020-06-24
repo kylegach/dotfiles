@@ -28,9 +28,21 @@ do
   source $file
 done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
+# Activate zsh plugins
+if type brew &>/dev/null
+	then
+		FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+		source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
 compinit
+
+# Remove group write permissions from insecure directories
+# See: https://stackoverflow.com/a/22753363
+compaudit | xargs chmod g-w
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
