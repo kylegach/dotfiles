@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Remove group write permissions from insecure directories
+# See: https://stackoverflow.com/a/22753363
+compaudit | xargs chmod g-w
+
 echo "  Checking for spaceship-prompt..."
 FILE=~/.spaceship-prompt
 if [ -f "$FILE" ]
