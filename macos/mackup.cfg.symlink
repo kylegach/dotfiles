@@ -1,3 +1,3 @@
 [storage]
 engine = file_system
-path = dotfiles
+path = .dotfiles/macos

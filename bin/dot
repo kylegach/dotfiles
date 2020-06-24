@@ -47,3 +47,12 @@ $ZSH/script/install
 # Set macOS defaults
 echo "  Restoring system preferences..."
 $ZSH/macos/set-defaults.sh
+
+echo "  Checking for mackup..."
+if test $(which mackup)
+  then
+    echo "  Restoring third-party app preferences..."
+    mackup restore
+  else
+    echo "  mackup not found; no third-party preferences restored"
+fi
