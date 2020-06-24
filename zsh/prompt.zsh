@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ -f ~/.spaceship-prompt ]
+if [[ -a $HOME/.spaceship-prompt ]]
 	then
 		autoload -U promptinit; promptinit
 		prompt spaceship

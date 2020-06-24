@@ -4,7 +4,7 @@
 
 echo "  Checking for zsh-nvm..."
 DIR=~/.zsh-nvm
-if [[ -d $DIR ]]
+if [[ -a $DIR ]]
 then
   echo "  Found zsh-nvm, upgrading..."
   source ~/.zshrc
