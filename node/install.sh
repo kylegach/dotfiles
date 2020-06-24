@@ -23,7 +23,7 @@ nvm use node
 echo "  Installing/upgrading global npm packages..."
 GLOBAL_NPM_PACKAGES=(
   npm
-);
-npm install -g ${GLOBAL_NPM_PACKAGES[@]}`;
+)
+npm install -g ${GLOBAL_NPM_PACKAGES[@]}`
 
 exit 0

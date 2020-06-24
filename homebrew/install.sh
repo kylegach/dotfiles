@@ -12,7 +12,7 @@ else
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
-echo "  Upgrading formulae and casks...";
+echo "  Upgrading formulae and casks..."
 brew upgrade
 
 echo "  Installing formulae, casks, and Mac App Store apps..."

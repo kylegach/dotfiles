@@ -30,18 +30,18 @@ fail () {
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
-    info 'setup gitconfig'
+    info "Setting up gitconfig..."
 
-    git_credential='osxkeychain'
+    git_credential="osxkeychain"
 
-    user ' - What is your github author name?'
+    user " - What is your github author name?"
     read -e git_authorname
-    user ' - What is your github author email?'
+    user " - What is your github author email?"
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
 
-    success 'gitconfig'
+    success "gitconfig"
   fi
 }
 
@@ -122,28 +122,37 @@ link_file () {
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  info "installing dotfiles"
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink" -not -path "*.git*")
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 }
 
+echo "🚨 Before proceding, check that your default shell is zsh, the contents of ~/.localrc, and that you are signed in to the Mac App Store."
+echo ""
+read -p "Ready? (y/n)"
+echo ""
+if [[ $REPLY =~ ^[Nn]$ ]]
+  then
+    exit 0
+fi
+
 setup_gitconfig
 install_dotfiles
 
 # Run ./bin/dot
-info "installing dependencies"
+info "Installing dependencies..."
 if source bin/dot | while read -r data; do info "$data"; done
 then
-  success "dependencies installed"
+  success "Dependencies installed"
 else
-  fail "error installing dependencies"
+  fail "Error installing dependencies"
 fi
 
-echo ''
-echo '  All installed!'
+echo ""
+echo ""  🚀 All done!""
