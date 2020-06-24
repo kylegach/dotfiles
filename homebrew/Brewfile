@@ -1,3 +1,4 @@
+tap "github/gh"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -9,6 +10,7 @@ brew "coreutils"
 brew "defaultbrowser"
 brew "git"
 brew "git-lfs"
+brew "github/gh/gh"
 brew "grep"
 brew "imagemagick" args: ["with-webp"]
 brew "lynx"
