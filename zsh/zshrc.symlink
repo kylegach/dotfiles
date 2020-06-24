@@ -29,14 +29,16 @@ do
 done
 
 # Activate zsh plugins
-if type brew &>/dev/null; then
-	FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+if type brew &>/dev/null
+	then
+		FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+		# initialize autocomplete here, otherwise functions won't be loaded
+		autoload -Uz compinit
+		compinit
+		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+		source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -Uz compinit
-compinit
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 
 # load every completion after autocomplete loads
 for file in ${(M)config_files:#*/completion.zsh}
