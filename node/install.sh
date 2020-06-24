@@ -10,11 +10,8 @@ else
   git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm 
 fi
 
-# Load the zsh-nvm plugin
-export NVM_AUTO_USE=true
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true
-source ~/.zsh-nvm/zsh-nvm.plugin.zsh
+# We need to source ~/.zshrc when we're done, to make `nvm` available
+reload!
 
 echo "  Installing node..."
 nvm install node
