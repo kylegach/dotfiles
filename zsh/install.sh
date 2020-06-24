@@ -1,20 +1,16 @@
-#!/usr/bin/env bash
-
-# Remove group write permissions from insecure directories
-# See: https://stackoverflow.com/a/22753363
-compaudit | xargs chmod g-w
+#!/bin/sh
 
 echo "  Checking for spaceship-prompt..."
-FILE=~/.spaceship-prompt
-if [ -f "$FILE" ]
+DIR="~/.spaceship-prompt"
+if [[ -d $DIR ]]
   then
     echo "  Found spaceship-prompt; upgrading..."
-    cd $FILE
-    git pull origin
+    cd $DIR
+    git pull --rebase origin
     cd -
   else 
     echo "  Installing spaceship-prompt..."
-    DIR_IN_FPATH = "/usr/local/share/zsh/site-functions"
-    git clone https://github.com/lukechilds/spaceship-prompt.git $FILE
-    ln -sf "$FILE/spaceship.zsh" "$DIR_IN_FPATH/prompt_spaceship_setup"
+    DIR_IN_FPATH="/usr/local/share/zsh/site-functions"
+    git clone https://github.com/denysdovhan/spaceship-prompt.git $DIR
+    ln -sf "$DIR/spaceship.zsh" "$DIR_IN_FPATH/prompt_spaceship_setup"
 fi

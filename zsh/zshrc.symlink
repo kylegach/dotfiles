@@ -4,6 +4,10 @@ export ZSH=$HOME/.dotfiles
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/projects
 
+# Remove group write permissions from insecure directories
+# See: https://stackoverflow.com/a/22753363
+compaudit | xargs chmod g-w
+
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
 # you'll have access to them in your scripts.
@@ -37,12 +41,13 @@ done
 if type brew &>/dev/null
 	then
 		FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-		# initialize autocomplete here, otherwise functions won't be loaded
-		autoload -Uz compinit
-		compinit
 		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 		source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -Uz compinit
+compinit
 
 
 # load every completion after autocomplete loads
