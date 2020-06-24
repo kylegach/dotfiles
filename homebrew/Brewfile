@@ -12,7 +12,7 @@ brew "git"
 brew "git-lfs"
 brew "github/gh/gh"
 brew "grep"
-brew "imagemagick" args: ["with-webp"]
+brew "imagemagick", args: ["with-webp"]
 brew "lynx"
 brew "mas"
 brew "p7zip"
