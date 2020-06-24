@@ -40,10 +40,10 @@ done
 
 export ZSH=$HOME/.dotfiles
 
-# Set macOS defaults
-echo "  Restoring system preferences..."
-$ZSH/macos/set-defaults.sh
-
 # Install software
 echo "› $ZSH/script/install"
 $ZSH/script/install
+
+# Set macOS defaults
+echo "  Restoring system preferences..."
+$ZSH/macos/set-defaults.sh
