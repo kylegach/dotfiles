@@ -1,16 +1,19 @@
-#!/bin/sh
+#!/bin/zsh
+
+# We reload the shell a couple times to make `nvm` available
 
 echo "  Checking for zsh-nvm..."
-if [[ -a ~/.zsh-nvm ]]
+DIR=~/.zsh-nvm
+if [[ -d $DIR ]]
 then
   echo "  Found zsh-nvm, upgrading..."
+  source ~/.zshrc
   nvm upgrade
 else
   echo "  Installing zsh-nvm..."
-  git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm 
+  git clone https://github.com/lukechilds/zsh-nvm.git $DIR
 fi
 
-# We need to reload the shell when we're done, to make `nvm` available
 source ~/.zshrc
 
 echo "  Installing node..."
