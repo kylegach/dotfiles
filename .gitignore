@@ -1,5 +1,6 @@
 # Local files & directories
 git/gitconfig.local.symlink
+system/localrc.symlink
 
 # Generated files & directories
 git/config.symlink/configstore

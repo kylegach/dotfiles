@@ -7,6 +7,7 @@ tap "homebrew/core"
 
 brew "ack"
 brew "coreutils"
+brew "defaultbrowser"
 brew "git"
 brew "git-lfs"
 brew "github/gh/gh"
