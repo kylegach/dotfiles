@@ -2,4 +2,5 @@
 git/gitconfig.local.symlink
 
 # Generated files & directories
+git/config.symlink/configstore
 Brewfile.lock.json
