@@ -40,10 +40,19 @@ done
 
 export ZSH=$HOME/.dotfiles
 
+# Install software
+echo "› $ZSH/script/install"
+$ZSH/script/install
+
 # Set macOS defaults
 echo "› $ZSH/macos/set-defaults.sh"
 $ZSH/macos/set-defaults.sh
 
-# Install software
-echo "› $ZSH/script/install"
-$ZSH/script/install
+echo "  Checking for mackup..."
+if test $(which mackup)
+  then
+    echo "  Restoring third-party app preferences..."
+    mackup restore
+  else
+    echo "  mackup not found; no third-party preferences restored"
+fi
