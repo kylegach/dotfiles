@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Usage: o <location>
+# Description: `o` with no arguments opens the current directory, otherwise opens the given location
+#
+# credit: https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+
+o() {
+	if [ $# -eq 0 ]
+    then
+      open .
+    else
+      open "$@"
+	fi
+}

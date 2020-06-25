@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Usage: mkd <dir>
+# Description: Create a new directory and enter it
+#
+# credit: https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+
+mkd() {
+	mkdir -p "$@" && cd "$_"
+}

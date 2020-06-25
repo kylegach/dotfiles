@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Usage: ql <files>
+# Description: Show a "Quick Look" view of files
+#
+# credit: https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+
+ql() { /usr/bin/qlmanage -p "$@" >& /dev/null & }
