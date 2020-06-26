@@ -56,7 +56,7 @@ $ZSH/macos/set-defaults.sh
 $ZSH/macos/set-hostname.sh
 
 echo "› Checking for mackup..."
-if test $(which mackup)
+if [[ $(which mackup) ]]
   then
     echo "› Restoring third-party app preferences..."
     mackup restore
