@@ -1,15 +1,15 @@
 #!/bin/sh
 
 echo "  Checking for Homebrew..."
-if test $(which brew)
-then
-  echo "  Found Homebrew, upgrading..."
+if ! [[ $(which brew) ]]
+  then
+    echo "  Installing Homebrew..."
 
-  brew update
-else
-  echo "  Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  else
+    echo "  Found Homebrew, upgrading..."
 
-  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    brew update
 fi
 
 echo "  Upgrading formulae and casks..."
