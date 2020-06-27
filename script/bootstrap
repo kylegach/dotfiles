@@ -7,36 +7,36 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
-echo ''
+echo ""
 
 info () {
-  printf "\r  [ \033[00;34m..\033[0m ] $1\n"
+  printf "$1\n"
 }
 
 user () {
-  printf "\r  [ \033[0;33m??\033[0m ] $1\n"
+  printf "❔  $1 "
 }
 
 success () {
-  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+  printf "✅  $1\n"
 }
 
 fail () {
-  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
+  printf "‼️   $1\n"
+  echo ""
   exit
 }
 
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
-    info 'setup gitconfig'
+    info "🎛  Setting up gitconfig..."
 
-    git_credential='osxkeychain'
+    git_credential="osxkeychain"
 
-    user ' - What is your github author name?'
+    user "   - What is your github author name?"
     read -e git_authorname
-    user ' - What is your github author email?'
+    user "   - What is your github author email?"
     read -e git_authoremail
 
     sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" git/gitconfig.local.symlink.example > git/gitconfig.local.symlink
@@ -99,79 +99,90 @@ link_file () {
     if [ "$overwrite" == "true" ]
     then
       rm -rf "$dst"
-      success "removed $dst"
+      success "Removed $dst"
     fi
 
     if [ "$backup" == "true" ]
     then
       mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
+      success "Moved $dst to ${dst}.backup"
     fi
 
     if [ "$skip" == "true" ]
     then
-      success "skipped $src"
+      success "Skipped $src"
     fi
   fi
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
     ln -s "$1" "$2"
-    success "linked $1 to $2"
+    success "Linked $1 to $2"
   fi
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  info "📄  Installing dotfiles..."
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name "*.symlink" -not -path "*.git*")
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 }
 
-echo "🚨 Before proceding, check that your default shell is zsh, the contents of ~/.localrc, and that you are signed in to the Mac App Store."
 echo ""
-read -p "Ready? (y/n)"
+info "⚠️   Before proceding, check:"
+info '    - Your default shell is zsh (`echo $0`)'
+info '    - ~/.localrc is present and populated (`touch ~/.localrc & open ~/.localrc`)'
+info "    - You are signed in to the Mac App Store"
 echo ""
-if [[ $REPLY =~ ^[Nn]$ ]]
-  then
-    exit 0
+user "Ready? (y/n)"
+read -e ready
+if [[ $ready =~ ^[Nn]$ ]]
+then
+  exit 0
 fi
 
 # Set computer name (as done via System Preferences → Sharing)
 # Define $COMPUTER_NAME in ~/.localrc
 if [ -z ${COMPUTER_NAME+x} ]
-  then
-    sudo scutil --set ComputerName "$COMPUTER_NAME"
-    sudo scutil --set HostName "$COMPUTER_NAME"
-    sudo scutil --set LocalHostName "$COMPUTER_NAME"
-    sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
-fi
-
-setup_gitconfig
-install_dotfiles
-
-# Run ./bin/dot
-info "installing dependencies"
-if source bin/dot | while read -r data; do info "$data"; done
 then
-  success "dependencies installed"
-else
-  fail "error installing dependencies"
-fi
-
-echo "Checking for mackup..."
-if [[ $(which mackup) ]]
-then
-  echo "Restoring third-party app preferences..."
-  mackup restore
-else
-  echo "mackup not found; no third-party preferences restored"
+  echo ""
+  info "💻  Setting computer names..."
+  sudo scutil --set ComputerName "$COMPUTER_NAME"
+  sudo scutil --set HostName "$COMPUTER_NAME"
+  sudo scutil --set LocalHostName "$COMPUTER_NAME"
+  sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
+  success "Computer names set."
 fi
 
 echo ""
-echo ""  🚀 All done!""
+setup_gitconfig
+
+echo ""
+install_dotfiles
+
+echo ""
+info "📦  Installing dependencies..."
+if source bin/dot | while read -r data; do info "$data"; done
+then
+  success "Dependencies installed."
+else
+  fail "Error installing dependencies."
+fi
+
+echo ""
+info "⚙️   Restoring third-party app preferences..."
+if [[ $(which mackup) ]]
+then
+  mackup -n restore
+  success "Preferences restored."
+else
+  fail "mackup not found; no third-party preferences restored."
+fi
+
+echo ""
+info "👍  All done!"

@@ -7,6 +7,8 @@
 #
 # Run ./set-defaults.sh and you'll be good to go.
 
+echo ""
+echo "⚙️   Setting macOS defaults..."
 
 # Close any open System Preferences panes, to prevent them from overriding
 # settings we’re about to change
@@ -613,4 +615,6 @@ for app in "Activity Monitor" \
 	"Terminal"; do
 	killall "${app}" &> /dev/null
 done
-echo "Done. Note that some of these changes require a logout/restart to take effect."
+
+echo "✅  Done. Note that some of these changes require a logout/restart to take effect."
+exit 0
