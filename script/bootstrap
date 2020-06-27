@@ -164,5 +164,14 @@ else
   fail "error installing dependencies"
 fi
 
+echo "Checking for mackup..."
+if [[ $(which mackup) ]]
+then
+  echo "Restoring third-party app preferences..."
+  mackup restore
+else
+  echo "mackup not found; no third-party preferences restored"
+fi
+
 echo ""
 echo ""  🚀 All done!""
