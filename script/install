@@ -9,20 +9,27 @@ cd "$(dirname $0)"/..
 install_scripts="**/install.sh"
 regex_scripts_to_run_first="(homebrew|zsh)\/install.sh"
 
+echo "📄  Running install scripts..."
+
 # Run homebrew and zsh first
 for script in $install_scripts
-	do
-		if [[ $script =~ $regex_scripts_to_run_first ]]
-			then
-				sh -c "${script}"
-		fi
+do
+	if [[ $script =~ $regex_scripts_to_run_first ]]
+	then
+		sh -c "${script}"
+	fi
 done
 
 # Then everything else
 for script in $install_scripts
-	do
-		if ! [[ $script =~ $regex_scripts_to_run_first ]]
-			then
-				sh -c "${script}"
-		fi
+do
+	if ! [[ $script =~ $regex_scripts_to_run_first ]]
+	then
+		sh -c "${script}"
+	fi
 done
+
+echo ""
+echo "✅  Install scripts done."
+
+exit 0

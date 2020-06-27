@@ -30,10 +30,10 @@ done
 
 # Activate zsh plugins
 if type brew &>/dev/null
-	then
-		FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-		source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Initialize autocomplete here, otherwise functions won't be loaded
