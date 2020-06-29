@@ -83,7 +83,7 @@ sudo echo "0x08000100:0" > ~/.CFUserTextEncoding
 sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 ###############################################################################
-# Keyboard, Bluetooth accessories, and input                 #
+# Keyboard, Bluetooth accessories, and input                                  #
 ###############################################################################
 
 # Increase sound quality for Bluetooth headphones/headsets
@@ -92,12 +92,6 @@ defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int
 # Enable full keyboard access for all controls
 # (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Use scroll gesture with the Ctrl (^) modifier key to zoom
-sudo defaults write com.apple.universalaccess closeViewScrollWheelToggle -bool true
-sudo defaults write com.apple.universalaccess HIDScrollZoomModifierMask -int 262144
-# Follow the keyboard focus while zoomed in
-sudo defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 
 # Set language and text formats
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -162,6 +156,37 @@ defaults write NSGlobalDomain AppleFontSmoothing -int 1
 
 # Enable HiDPI display modes (requires restart)
 sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutionEnabled -bool true
+
+###############################################################################
+# Menu bar                                                                    #
+###############################################################################
+
+# Available extras:
+# AirPort
+# Battery
+# Bluetooth
+# Clock
+# Displays
+# RemoteDesktop
+# Script Menu
+# TextInput
+# TimeMachine
+# Volume
+
+# Hide these
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*
+do
+  defaults write "${domain}" dontAutoLoad -array \
+"/System/Library/CoreServices/Menu Extras/Clock.menu" \
+"/System/Library/CoreServices/Menu Extras/Displays.menu" \
+"/System/Library/CoreServices/Menu Extras/TextInput.menu"
+done
+
+# Show these
+defaults write com.apple.systemuiserver menuExtras -array \
+"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+"/System/Library/CoreServices/Menu Extras/Battery.menu"
 
 ###############################################################################
 # Finder                                                                      #
@@ -261,6 +286,9 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
 
+# Hide recent tags in sidebar
+defaults write com.apple.finder ShowRecentTags -bool false
+
 # Expand the following File Info panes:
 # “General”, “Open with”, and “Sharing & Permissions”
 defaults write com.apple.finder FXInfoPanesExpanded -dict \
@@ -290,13 +318,13 @@ defaults write com.apple.dock minimize-to-application -bool true
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
 
-# Show indicator lights for open applications in the Dock
+# Show indicator dots for open applications in the Dock
 defaults write com.apple.dock show-process-indicators -bool true
 
 # Wipe all (default) app icons from the Dock
 # This is only really useful when setting up a new Mac, or if you don’t use
 # the Dock to launch apps.
-#defaults write com.apple.dock persistent-apps -array
+defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
 #defaults write com.apple.dock static-only -bool true
@@ -322,8 +350,8 @@ defaults write com.apple.dock mru-spaces -bool false
 # Displays have separate Spaces
 defaults write com.apple.spaces spans-displays -bool true
 
-# Remove the auto-hiding Dock delay
-defaults write com.apple.dock autohide-delay -float 0
+# Set a long auto-hiding Dock delay, to avoid accidentally triggering
+defaults write com.apple.dock autohide-delay -float 2
 # Remove the animation when hiding/showing the Dock
 defaults write com.apple.dock autohide-time-modifier -float 0
 
@@ -335,6 +363,9 @@ defaults write com.apple.dock showhidden -bool true
 
 # Don’t show recent applications in Dock
 defaults write com.apple.dock show-recents -bool false
+
+# Enable the Exposé gesture (three finger swipe down)
+defaults write com.apple.dock showAppExposeGestureEnabled -int 1
 
 # Disable the Launchpad gesture (pinch with thumb and three fingers)
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
@@ -364,6 +395,13 @@ defaults write com.apple.dock wvous-bl-modifier -int 0
 # Bottom right screen corner → no-op
 defaults write com.apple.dock wvous-br-corner -int 0
 defaults write com.apple.dock wvous-br-modifier -int 0
+
+###############################################################################
+# System Preferences (the app)                                                #
+###############################################################################
+
+# Organize alphabetically
+defaults write com.apple.systempreferences ShowAllMode -int 1
 
 ###############################################################################
 # Safari & WebKit                                                             #
