@@ -3,4 +3,9 @@ engine = file_system
 path = .dotfiles/macos
 
 [applications_to_ignore]
+curl
+git
+mackup
+vim
 vscode-insiders
+zsh
