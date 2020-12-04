@@ -11,6 +11,11 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
+# Safer move, copy, and make dir
+alias mv="mv -iv"
+alias cp="cp -iv"
+alias mkdir="mkdir -vp"
+
 # Shortcuts
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
