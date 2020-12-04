@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Usage: please <cmd> OR <cmd>, permission failure, then please
+# Description: Either effectively alias sudo, or apply sudo to previously run command
+#
+# credit: https://meyerweb.com/eric/thoughts/2020/09/29/polite-bash-commands/
+
+please() {
+	if [ "$1" ]; then
+		sudo $@
+	else
+		sudo "$ZSH" -c "$(history -p !!)"
+	fi
+}
