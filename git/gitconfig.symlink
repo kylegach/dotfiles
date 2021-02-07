@@ -79,6 +79,8 @@
 	rank-contributors = !$ZSH/bin/git-rank-contributors
 	count = !git shortlog -sn
 
+  wip = for-each-ref --sort='authordate:iso8601' --format='%(color:green)%(authordate:relative)%09%(color:white)%(refname:short) / %(contents:subject)' refs/heads
+
 [apply]
 	# Detect whitespace errors when applying a patch.
 	whitespace = fix
