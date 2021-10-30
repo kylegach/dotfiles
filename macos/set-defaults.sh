@@ -110,28 +110,28 @@ launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/nul
 ###############################################################################
 
 # Enable lid wakeup
-sudo pmset -a lidwake 1
+# sudo pmset -a lidwake 1
 
 # Restart automatically on power loss
-sudo pmset -a autorestart 1
+# sudo pmset -a autorestart 1
 
 # Restart automatically if the computer freezes
-sudo systemsetup -setrestartfreeze on
+# sudo systemsetup -setrestartfreeze on
 
 # Sleep the display after 15 minutes when charging
-sudo pmset -c displaysleep 15
+# sudo pmset -c displaysleep 15
 
 # Set machine sleep to 30 minutes when charging
-sudo pmset -c sleep 30
+# sudo pmset -c sleep 30
 
 # Sleep the display after 5 minutes on battery
-sudo pmset -b displaysleep 5
+# sudo pmset -b displaysleep 5
 
 # Set machine sleep to 10 minutes on battery
-sudo pmset -b sleep 10
+# sudo pmset -b sleep 10
 
 # Set standby delay to 24 hours (default is 1 hour)
-sudo pmset -a standbydelay 86400
+# sudo pmset -a standbydelay 86400
 
 ###############################################################################
 # Screen                                                                      #
