@@ -9,3 +9,4 @@ alias gb='git branch'
 alias gl="git l"
 alias gs='git s' # upgrade your git if -sb breaks for you. it's fun.
 alias gac='git amend'
+alias gpr='git pull --rebase'
