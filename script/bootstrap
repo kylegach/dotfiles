@@ -10,19 +10,19 @@ set -e
 echo ""
 
 info () {
-  printf "$1\n"
+  printf -- "$1\n"
 }
 
 user () {
-  printf "❔  $1 "
+  printf -- "❔  $1 "
 }
 
 success () {
-  printf "✅  $1\n"
+  printf -- "✅  $1\n"
 }
 
 fail () {
-  printf "‼️   $1\n"
+  printf -- "‼️   $1\n"
   echo ""
   exit
 }

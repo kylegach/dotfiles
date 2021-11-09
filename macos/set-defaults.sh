@@ -76,7 +76,7 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 # Fix for the ancient UTF-8 bug in QuickLook (https://mths.be/bbo)
 # Heads up: this is known to cause problems in various Adobe apps :(
 # See https://github.com/mathiasbynens/dotfiles/issues/237
-sudo echo "0x08000100:0" > ~/.CFUserTextEncoding
+# sudo echo "0x08000100:0" > ~/.CFUserTextEncoding
 
 # Reveal IP address, hostname, OS version, etc. when clicking the clock
 # in the login window
@@ -103,7 +103,7 @@ defaults write NSGlobalDomain AppleMetricUnits -bool false
 sudo systemsetup -settimezone "America/Denver" > /dev/null
 
 # Stop iTunes from responding to the keyboard media keys
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 ###############################################################################
 # Energy saving                                                               #
@@ -281,7 +281,7 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 
 # Show the ~/Library folder
-chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
+# chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
 
 # Show the /Volumes folder
 sudo chflags nohidden /Volumes
