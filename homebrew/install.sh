@@ -24,3 +24,11 @@ brew cleanup
 
 echo "✅  Homebrew done."
 exit 0
+
+
+# - Run these two commands in your terminal to add Homebrew to your PATH:
+# echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/kylegach/.zprofile
+# eval "$(/opt/homebrew/bin/brew shellenv)"
+# - Run `brew help` to get started
+# - Further documentation:
+# https://docs.brew.sh
