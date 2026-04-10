@@ -2,7 +2,7 @@
 
 Your dotfiles are how you personalize your system and automate setup. These are mine.
 
-![screenshot of terminal detailing changes from upstream, including Brewfile, zsh plugins, nvm, spaceship-prompt, aliases, functions, mackup][screenshot]
+![screenshot of terminal detailing changes from upstream, including Brewfile, zsh plugins, spaceship-prompt, aliases, functions, mackup][screenshot]
 
 
 ## What's Inside
