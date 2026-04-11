@@ -81,6 +81,7 @@ I forked [Zach Holman's](http://github.com/holman) clever
 [dotfiles](https://github.com/mathiasbynens/dotfiles), particularly the incredibly helpful
 [.macos](https://github.com/https://github.com/mathiasbynens/dotfiles/blob/main/.macos/dotfiles).
 
+Ghostty icons courtesy of https://github.com/lukejanicke/ghostty-app-icons
 
 [screenshot]: https://github.com/kylegach/dotfiles/blob/main/screenshot.png
 [fork]: https://github.com/kylegach/dotfiles/fork

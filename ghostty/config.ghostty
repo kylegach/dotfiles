@@ -1,0 +1,22 @@
+working-directory = ~/projects
+
+copy-on-select = false
+
+window-save-state = always
+
+split-inherit-working-directory = true
+tab-inherit-working-directory = false
+window-inherit-working-directory = false
+
+font-family = Monaspace Argon Regular
+font-family-bold = Monaspace Argon Bold
+font-family-bold-italic = Monaspace Argon Bold Italic
+font-family-italic = Monaspace Argon Italic
+
+theme = Overnight Slumber
+
+window-padding-x = 15
+window-padding-y = 5,15
+
+macos-icon = custom
+macos-custom-icon = ~/.dotfiles/ghostty/icons/ghostty-black.icns
