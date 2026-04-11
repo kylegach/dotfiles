@@ -5,3 +5,4 @@ system/localrc.symlink
 # Generated files & directories
 git/config.symlink/configstore
 Brewfile.lock.json
+spaceship.zsh.zwc
