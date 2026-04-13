@@ -1,0 +1,160 @@
+{
+  "debug.javascript.codelens.npmScripts": "never",
+  "editor.formatOnSave": false,
+  "editor.fontSize": 13,
+  // "editor.fontFamily": "'JetBrains Mono', 'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
+  // "editor.fontLigatures": false,
+  // "editor.lineHeight": 18,
+  "editor.fontFamily": "'Monaspace Argon', monospace",
+  // See: https://github.com/githubnext/monaspace#coding-ligatures
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss04', 'ss06', 'ss07'",
+  "editor.lineHeight": 19,
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.minimap.enabled": false,
+  "editor.rulers": [100],
+  "editor.semanticHighlighting.enabled": false,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "explorer.autoReveal": false,
+  "files.associations": {
+    "*.symlink": "shellscript"
+  },
+  "git.enableSmartCommit": true,
+  "workbench.colorTheme": "Overnight Slumber Italics",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.startupEditor": "newUntitledFile",
+
+  /**
+   * Extensions
+   **/
+  "emmet.showAbbreviationSuggestions": false,
+  "emmet.showExpandedAbbreviation": "never",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "npm.packageManager": "yarn",
+  "pigments.enabledExtensions": "css, scss, json, js, jsx, ts, tsx",
+  "todo-tree.filtering.excludeGlobs": ["**/node_modules/**/*/*.*"],
+  "todo-tree.filtering.useBuiltInExcludes": "file excludes",
+  "todo-tree.general.statusBar": "top three",
+  // "workbench.statusBar.visible": false,
+  "git.confirmSync": false,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "search.exclude": {
+    "**/.yarn": true,
+    "yarn.lock": true
+  },
+  "editor.inlineSuggest.enabled": true,
+  "todo-tree.general.tags": [
+    "BUG",
+    "HACK",
+    "FIXME",
+    "TODO",
+    "XXX",
+    "[ ]",
+    "[x]",
+    "BEFORE"
+  ],
+  "eslint.format.enable": true,
+  "totalTypeScript.hideAllTips": false,
+  "totalTypeScript.hideBasicTips": true,
+  "totalTypeScript.hiddenTips": [
+    "passing-generics-to-types",
+    "record-utility-type",
+    "keyof",
+    "pick-utility-type",
+    "omit-utility-type",
+    "typeof",
+    "partial-utility-type",
+    "returntype-utility-type",
+    "as-const",
+    "generic-slots-in-functions",
+    "as-const-on-object",
+    "type-predicate",
+    "tuple-type",
+    "conditional-type",
+    "nested-conditional-type",
+    "type-alias-with-generics",
+    "type-alias-with-multiple-generics",
+    "interface-with-generics",
+    "mapped-type",
+    "parameters-utility-type",
+    "infer",
+    "in-operator-narrowing",
+    "required-utility-type",
+    "remapping-in-mapped-type",
+    "never-keyword",
+    "exclude-utility-type",
+    "interface-with-multiple-generics",
+    "bigint",
+    "non-null-expression",
+    "awaited-utility-type",
+    "readonly-utility-type"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": false,
+    "plaintext": false,
+    "markdown": true
+  },
+  "editor.linkedEditing": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "todo-tree.regex.regex": "(//|\\*\\*?|#|<!--|;|/\\*|^|^[ \\t]*(-|\\d+.))\\s*($TAGS)",
+  "workbench.editor.doubleClickTabToToggleEditorGroupSizes": "maximize",
+  "diffEditor.renderSideBySide": true,
+  "editor.wordWrapColumn": 100,
+  "diffEditor.experimental.showMoves": true,
+  "gitlens.launchpad.indicator.enabled": false,
+  "workbench.preferredDarkColorTheme": "Overnight Slumber Italics",
+  "workbench.activityBar.location": "hidden",
+  "workbench.sideBar.location": "right",
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "chat.tools.terminal.autoApprove": {
+    "mv": true,
+    "cp": true,
+    "yarn build": true,
+    "yarn test": true,
+    "for f in *.md; do if grep -q 'renderer=\"react\".*CSF Next' \"$f\" && ! grep -q 'renderer=\"vue\".*CSF Next' \"$f\"; then echo \"$f\"; fi; done | head -20": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "for f in *.md; do if grep -q 'renderer=\"react\".*CSF Next' \"$f\" && ! grep -q 'renderer=\"vue\".*CSF Next' \"$f\"; then echo \"$f\"; fi; done | wc -l": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "grep -l 'renderer=\"react\".*tabTitle=\"CSF Next' /Users/kylegach/projects/storybook/docs/_snippets/*.md | head -40 | xargs -I {} basename {}": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "for file in /Users/kylegach/projects/storybook/docs/_snippets/*.md; do\n  if grep -q 'renderer=\"react\".*tabTitle=\"CSF Next' \"$file\" && ! grep -q 'renderer=\"vue\".*tabTitle=\"CSF Next' \"$file\"; then\n    basename \"$file\"\n  fi\ndone | head -50": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "for file in /Users/kylegach/projects/storybook/docs/_snippets/*.md; do\n  if grep -q 'renderer=\"react\".*tabTitle=\"CSF Next' \"$file\" && ! grep -q 'renderer=\"vue\".*tabTitle=\"CSF Next' \"$file\"; then\n    basename \"$file\"\n  fi\ndone | wc -l": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "od": true,
+    "xxd": true,
+    "sed": true,
+    "grep -l 'renderer=\"react\".*tabTitle=\"CSF Next' /Users/kylegach/projects/storybook/docs/_snippets/storybook-preview-*.md 2>/dev/null | head -20": {
+      "approve": true,
+      "matchCommandLine": true
+    },
+    "grep -l 'renderer=\"react\".*tabTitle=\"CSF Next' /Users/kylegach/projects/storybook/docs/_snippets/storybook-preview-*.md 2>/dev/null | wc -l": {
+      "approve": true,
+      "matchCommandLine": true
+    }
+  },
+  "files.enableTrash": false,
+  "chat.agent.maxRequests": 200,
+  "workbench.iconTheme": "vscode-icons",
+  "chat.viewSessions.orientation": "stacked",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "prettier.enable": false,
+  "claudeCode.preferredLocation": "panel"
+}
